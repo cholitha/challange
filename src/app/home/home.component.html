@@ -1,0 +1,37 @@
+<mat-grid-list cols="2" rowHeight="200px">
+    <mat-grid-tile>
+        <mat-card>
+            <mat-form-field appearance="outline">
+                <mat-label>Available Users</mat-label>
+                <input matInput placeholder="User Name" [formControl]="myControl" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{option.name}}
+                    </mat-option>
+                </mat-autocomplete>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Type the users and search</mat-hint>
+            </mat-form-field>
+            <mat-divider></mat-divider>
+            <mat-card-actions>
+                <button (click)="search()" class="btn" mat-raised-button color="accent">View Post</button>
+                <button (click)="searchAlbums()" class="btn" mat-raised-button color="primary">View Abums</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile class="area">
+        <mat-card class="area" style="width: 100%;">
+            <mat-accordion>
+                <mat-expansion-panel *ngFor="let post of posts" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Title :: {{post.title}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>Post :: {{post.body}}</p>
+                    <button color="primary" mat-raised-button (click)="openCommentArea(post)">View Comments</button>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

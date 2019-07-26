@@ -1,0 +1,8 @@
+<h2>Albums</h2>
+<mat-list>
+    <mat-list-item *ngFor="let album of albums">
+        <mat-icon matListIcon>photo</mat-icon>
+        <h3 matLine>{{album.title}}</h3>
+        <button (click)="viewPhoto(album)" class="btn" mat-raised-button color="primary">View Photoes</button>
+    </mat-list-item>
+</mat-list>
