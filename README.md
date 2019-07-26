@@ -34,3 +34,8 @@ Using JSON Placehosder feature,This module can
     Search comments by posts
     Search Albums bu user
     Search photoes by album
+
+## Install Project
+    Step 1 - Clone the project :: https://github.com/cholitha/challange.git
+    Step 2 - install the Node package :: npm install
+    Step 3 - run the project :: ng serve --open
